@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+      }
+
+      form {
+        width: 50%;
+        /* background-color: antiquewhite; */
+        margin: auto;
+        height: 300px;
+        padding-top: 100px;
+      }
+      form div {
+        position: relative;
+        padding: 10px;
+      }
+
+      form div img {
+        /* padding: 10px;  */
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 15px;
+        display: inline-block;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      form input {
+        width: 50%;
+        /* border: none; */
+        height: 50px;
+        display: inline-block;
+        border-radius: 10px;
+        margin-right: 20px;
+      }
+
+      button {
+        border-radius: 10px;
+        height: 40px;
+        width: 20%;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="">
+        <label for="">Email</label>
+        <div>
+          <input type="email" id="email" placeholder="example@gmail.com" />
+        </div>
+        <label for="">Password</label>
+        <div>
+          <input
+            type="password"
+            onkeydown="SetImage()"
+            id="pass"
+            placeholder="password****"
+          />
+          <img
+            src="Open.jpg"
+            id="img-pass"
+            onmouseover="changeImage()"
+            onmouseout="changeImage()"
+            width="20px"
+            alt=""
+          />
+        </div>
+        <div>
+          <button>Login</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      var image = document.getElementById("img-pass");
+      var m = document.getElementById('pass');
+
+      function changeImage() {
+
+        if (m.value) {
+          if (image.getAttribute("src") == "Close.jpg") {
+            image.setAttribute("src", "Open.jpg");
+            document.getElementById("pass").type = "text";
+          } else {
+            image.setAttribute("src", "Close.jpg");
+            document.getElementById("pass").type = "password";
+          }
+        }
+      }
+
+      function SetImage() {
+
+        if (!m.value) {
+          image.setAttribute("src", "Open.jpg");
+        }else{
+          image.setAttribute("src", "Close.jpg");
+        }
+      }
+    </script>
+  </body>
+</html>
